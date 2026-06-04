@@ -1,14 +1,16 @@
 class Car:
-    def __init__(self, brand,model):                 #this is constructor built desire atrributes inside class
+    def __init__(self, brand,model):
         self.brand = brand
         self.model = model
 
-    def full_name(self):                             #this is function inside class
+    def full_name(self):
         return f"{self.brand}-{self.model}"
 
-class ElectricCar(Car):
+class ElectricCar(Car): #Car is inherit in ElecticCAr class
     def __init__(self, brand , model, battery_size):
-        super().__init__(brand,model)                 #super() used to initialize other classes attributes to inheritant class 
+
+        #super() used to initialize other classes attributes to inheritant class
+        super().__init__(brand,model)
         self.battery_size = battery_size
 
 my_tesla = ElectricCar("Tesla", "Model S", "85Kwh")

@@ -2,7 +2,9 @@ class Car:
     def __init__(self,brand,model):
         self.brand = brand
         self.model = model
-    def fuel_type(self):                                      #fuel_type() is used in both classes with different value return.
+        
+    #fuel_type() is used in both classes with different value return.   
+    def fuel_type(self):  
         return "pertrol and diesal"
 class ELectricCar(Car):
     def __init__(self, brand, model,batter_size):
