@@ -1,5 +1,7 @@
 def debug(func):
     def wrapper(*args, **kwagrs):
+        #.join() is used to seperate the args value which is in tuple as a string 
+        #.join() only accept string i.e str(x) is used and ', ' is used to seperate
         arg_value = ', '.join(str(x) for x in args)
         kwarg_value = ', '.join(f"{k}:{v}" for k,v in kwagrs.items())
         print(f"calling {func.__name__} with agrs value {arg_value} and kwargs value {kwarg_value}")
