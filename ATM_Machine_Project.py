@@ -8,7 +8,6 @@ print("4. Exit")
 while True:
     operation = int(input("Enter your option: "))
     if operation==1:
-        amt = int(input("Enter your Amount: "))
         try:
             pin = int(input("Enter your PIN NO.: "))
         except ValueError:
@@ -17,10 +16,13 @@ while True:
         for k,v in card_details.items():
             if pin == v:
                 found = True
+                amt = int(input("Enter your Amount: "))
                 if amt < 0:
                     print("Enter a positive amt")
                 elif amt > user_detail[v]:
                     print("Insufficient Balance")
+                elif amt == 0:
+                    print("Enter a valid amt")
                 else:
                     up = user_detail[v] - amt
                     user_detail[v] = up
@@ -63,7 +65,8 @@ while True:
                     break
                 else:
                     card_details[k] = new_pin
-                    print("PIN NO. change success")
+                    user_detail[new_pin] = user_detail.pop(v)
+                    print("PIN NO. successfully changed")
                     break
         if not found:
             print("Invalid PIN")
