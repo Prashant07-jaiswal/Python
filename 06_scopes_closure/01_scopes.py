@@ -6,10 +6,10 @@ print(username)            #Inside function same variable do not affect global v
 
 name = "victor"
 def func2():
-    # name = "dimitri"
+    name = "dimitri"
     print(name)
 
-func2()                       #Inside function print() also clime up for values and can use global variable
+func2()                  #Inside function print() also clime up for values and can use global variable
 print(name)
 
 x = 99
