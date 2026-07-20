@@ -13,8 +13,10 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS videos(
             ID INTEGER PRIMARY KEY,
             NAME TEXT NOT NULL,
-            TIME TEXT NOT NULL
-    )
+            TIME TEXT NOT NULL,
+            TAG TEXT NOT NULL,
+            CATEGORY TEXT NOT NULL     
+    );
 ''')
 
 def list_all_videos():
@@ -24,13 +26,13 @@ def list_all_videos():
 
     #"cursor.fetchall" is used to return a list of result which is stored in cursor
     for row in cursor.fetchall():
-            print(row)
+             print(row)     
 
-def add_video(name,time):
+def add_video(name,time,tag,category):
 
     #"(?,?)" take the actual arguments from parameters variables ", (name ,time)"
     #"(Name, Time )" indicated in this column "?" take values and insert in it
-    cursor.execute("INSERT INTO videos (Name, Time ) VALUES (?,?)", (name ,time))
+    cursor.execute("INSERT INTO videos (Name, Time, TAG, CATEGORY ) VALUES (?,?,?,?)", (name ,time,tag, category ))
     con.commit()
 
 def update_video(uid,new_name,new_time):
@@ -60,7 +62,9 @@ def main():
         elif choise == 2:
             name = input("\nEnter a video name: ")
             time = input("Enter a duration of video: ")
-            add_video(name,time)
+            tag = input("Enter tag for this video: ")
+            category = input("Enter category of this video: ")
+            add_video(name,time, tag, category)
             print("\nVIDEO ADDED SUCCESSFULLY!")
 
         elif choise == 3:
